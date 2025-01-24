@@ -2,7 +2,7 @@
 
 ![Readme Photo](/images/readme.webp)
 
-Welcome to the Star Wars Character & Movie Guide! This project showcases the use of AJAX to dynamically fetch and display data from the Star Wars API (SWAPI).
+Welcome to the Star Wars Character & Movie Guide! This project showcases the use of AJAX to dynamically fetch and display data from the Star Wars API (SWAPI). It allows users to explore detailed information about Star Wars characters and their associated movies, providing an interactive experience without page reloads.
 
 
 ## Table of Contents 📋
@@ -32,7 +32,7 @@ To explore the site locally:
 3. Open `index.html` in a browser or local server.
 
 
-## Usage <a name="usage"></a>
+## Usage ⚙️ <a name="usage"></a>
 - Click a character to load and view its associated movie.
 - Explore additional animations or features as desired.
 
