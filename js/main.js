@@ -8,29 +8,29 @@
 
     //FUNCTIONS
     function getCharacters() {
-        fetch(`${baseURL}people`)
+        fetch(`${baseURL}people/?page=2`)
         .then(response => response.json())
         .then(function(response) {
-            const characters = response.results,
-                  ul = document.createElement('ul');
+            const characters = response.results;
+            const gallery = document.createElement('div');
+            gallery.classList.add('images_container');
 
             characters.forEach(character => {
-                const li = document.createElement('li'),
-                      a = document.createElement('a');
+                const card = document.createElement('div');
+                card.classList.add('character-card');
                 
-                a.dataset.films = character.films[0];
-                a.textContent = character.name;
-                li.appendChild(a);
-                ul.appendChild(li);
+                const img = document.createElement('img');
+                img.src = `images/${character.name.toLowerCase().replace(/\s+/g, '')}.png`;
+                img.alt = character.name;
+                
+                card.dataset.films = character.films[0];
+                card.addEventListener('click', getMovie);
+                
+                card.appendChild(img);
+                gallery.appendChild(card);
             });
             
-            characterBox.appendChild(ul);
-        })
-        .then(function() {
-            const links = document.querySelectorAll('#character-box li a');
-            links.forEach(link => {
-                link.addEventListener('click', getMovie);
-            });
+            characterBox.appendChild(gallery);
         })
         .catch(error => {
             console.log(error);
