@@ -1,0 +1,34 @@
+.movie-details {
+
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+
+    #movie-box {
+        width: 80%;
+        padding: 2rem;
+        display: flex;
+        gap: 2rem;
+        max-height: 50vh;
+        justify-content: center;
+
+        .movie-poster {
+            width: 20%;
+            height: 100%;
+            border: 2px solid white;
+        }
+
+        .movie-title {
+            color: #FFE81F;
+            margin: 0;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .movie-crawl {
+            color: white;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+    }
+}
