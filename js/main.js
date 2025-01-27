@@ -11,26 +11,25 @@
         fetch(`${baseURL}people/?page=2`)
         .then(response => response.json())
         .then(function(response) {
-            const characters = response.results;
-            const gallery = document.createElement('div');
-            gallery.classList.add('images_container');
+            const characters = response.results,
+                  ul = document.createElement('ul');
 
             characters.forEach(character => {
-                const card = document.createElement('div');
-                card.classList.add('character-card');
+                const li = document.createElement('li'),
+                      a = document.createElement('a'),
+                      img = document.createElement('img');
                 
-                const img = document.createElement('img');
                 img.src = `images/${character.name.toLowerCase().replace(/\s+/g, '')}.png`;
                 img.alt = character.name;
                 
-                card.dataset.films = character.films[0];
-                card.addEventListener('click', getMovie);
+                li.dataset.films = character.films[0];
+                li.addEventListener('click', getMovie);
                 
-                card.appendChild(img);
-                gallery.appendChild(card);
+                li.appendChild(img);
+                ul.appendChild(li);
             });
             
-            characterBox.appendChild(gallery);
+            characterBox.appendChild(ul);
         })
         .catch(error => {
             console.log(error);
@@ -40,7 +39,7 @@
 
     function getMovie(e) {
 
-        const movieURL = e.target.dataset.films;
+        const movieURL = e.currentTarget.dataset.films;
         
         fetch(movieURL)
         .then(response => response.json())
@@ -59,11 +58,16 @@
             
             movieTitle.innerHTML = title;
             moviePoster.src = `images/${episodeId}.jpg`;
+            moviePoster.alt = response.title;
             movieCrawl.innerHTML = crawl;
             
             movieBox.appendChild(clone);
-            
+
         })
+        .catch(error => {
+            console.log(error);
+            characterBox.innerHTML = '<p class="error">Error loading movie</p>';
+        });
     }
 
     getCharacters();
