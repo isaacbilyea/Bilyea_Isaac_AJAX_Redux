@@ -1,0 +1,52 @@
+.images_container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+  
+.character-card {
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: grayscale(70%) brightness(0.7);
+    margin: 0 -50px;
+    margin-bottom: -60px;
+    
+    img {
+        width: auto;
+        height: 100%;
+        max-width: none;
+        object-fit: contain;
+    }
+
+    &:nth-of-type(6) {
+        margin-right: 50px;
+        margin-left: -50px;
+        z-index: -1;
+    }
+
+    &:nth-of-type(6):hover {
+        z-index: -1;
+    }
+
+    &:nth-of-type(8) {
+            margin-right: 5px;
+    }
+
+    &:nth-of-type(9) {
+        img {
+            transform: scale(0.8);
+        }
+    }
+    
+    &:hover {
+        transform: translateY(-20px);
+        filter: grayscale(0%) brightness(1);
+        z-index: 2;
+    }
+}
