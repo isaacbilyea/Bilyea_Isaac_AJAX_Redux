@@ -5,59 +5,85 @@
         bottom: 0;
         left: 0;
         width: 100%;
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-direction: row;
         justify-content: center;
         padding-bottom: 20px;
-    
+
         li {
             width: 200px;
             height: 300px;
             cursor: pointer;
             transition: all 0.3s ease;
             filter: grayscale(70%) brightness(0.7);
-            margin: 0 -50px;
-            margin-bottom: -80px;
             list-style-type: none;
+            position: relative;
+            margin: 0 -25px -50px -25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            .character-name {
+                top: -70px;
+                font-weight: 800;
+                position: absolute;
+                color: #FFE81F;
+                font-size: 1.2rem;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            &.active .character-name, &:hover .character-name {
+                opacity: 1;
+            }
             
             img {
-                width: auto;
                 height: 100%;
                 max-width: none;
                 object-fit: contain;
             }
 
+            //Jabba
             &:nth-of-type(6) {
-                margin-right: 50px;
-                margin-left: -50px;
+                margin: 0 60px -100px -60px;
                 z-index: -1;
+                display: block;
+
+                
+                &:hover, &.active {
+                    z-index: -1;
+                }
+
+                img {
+                    width: auto;
+                }
+
             }
 
-            &:nth-of-type(6):hover {
-                z-index: -1;
-            }
-
-            &:nth-of-type(8) {
-                    margin-right: 5px;
-            }
-
+            //Yoda
             &:nth-of-type(9) {
+
                 img {
                     transform: scale(0.8);
+                    transform-origin: bottom;
+                    position: relative;
+                    bottom: 5px;
                 }
+
             }
-            
-            &:hover {
-                transform: translateY(-20px);
+
+    
+            &:hover, &.active {
+                transform: translateY(-20px) scale(1.05);
                 filter: grayscale(0%) brightness(1);
                 z-index: 2;
             }
 
-            &:hover {
-                transform: translateY(-20px);
-                filter: grayscale(0%) brightness(1);
-                z-index: 2;
-            }
         }
     }
 }

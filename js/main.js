@@ -16,15 +16,20 @@
 
             characters.forEach(character => {
                 const li = document.createElement('li'),
-                      a = document.createElement('a'),
+                      name = document.createElement('p'),
                       img = document.createElement('img');
                 
+                name.textContent = character.name.toUpperCase();
+                name.classList.add('character-name');
+
                 img.src = `images/${character.name.toLowerCase().replace(/\s+/g, '')}.png`;
                 img.alt = character.name;
                 
                 li.dataset.films = character.films[0];
                 li.addEventListener('click', getMovie);
                 
+                
+                li.appendChild(name); 
                 li.appendChild(img);
                 ul.appendChild(li);
             });
@@ -39,8 +44,16 @@
 
     function getMovie(e) {
 
-        const movieURL = e.currentTarget.dataset.films;
+        const movieURL = e.currentTarget.dataset.films,
+              characters = document.querySelectorAll('#character-box li');
         
+        characters.forEach(character => {
+            character.classList.remove('active');
+        });
+
+        e.currentTarget.classList.add('active');
+        
+
         fetch(movieURL)
         .then(response => response.json())
         .then(function(response) {
