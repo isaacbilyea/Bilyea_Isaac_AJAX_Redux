@@ -110,10 +110,15 @@
         ul {
             li {
                 display: flex;
-                width: 5vw;
-                margin: 0 1.25rem;
-                margin-bottom: -2.5rem;
+                margin: 0 -1.5rem;
+                width: min-content;
+                margin-bottom: -2.25rem;
+                height: 225px;
                 filter: grayscale(70%) brightness(0.7);
+
+                img { 
+                    height: 100%;
+                }
 
                 .character-name {
                     opacity: 0;
@@ -129,8 +134,15 @@
                     z-index: 2;
                 }
 
+                //Jabba
                 &:nth-of-type(6) {
                     z-index: -1;
+
+                    img {
+                        margin-right: -14rem;
+                        margin-left: -1.5rem;
+                        margin-bottom: -2rem;
+                    }
 
                     .character-name {
                         margin-right: -2rem;
@@ -141,6 +153,41 @@
                         filter: none;
                         z-index: -1;
 
+                    }
+                }
+
+
+                //Yoda
+                &:nth-of-type(9) {
+
+                    img {
+                        transform: scale(0.8);
+                        margin-bottom: -2rem;
+                        margin-right: -1rem;
+                    }
+                }
+
+            }
+        } 
+    }
+}
+
+@media screen and (min-width: 1400px) {
+
+    #character-box {
+
+        ul {
+            li {
+                height: 250px;
+
+
+                //Jabba
+                &:nth-of-type(6) {
+
+                    img {
+                        margin-right: -15.5rem;
+                        margin-left: -1.5rem;
+                        margin-bottom: -2rem;
                     }
                 }
 
