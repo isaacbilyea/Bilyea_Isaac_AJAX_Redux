@@ -5,24 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/main.css" rel="stylesheet">
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script defer src="js/main.js"></script>
     <title>Star Wars Guide</title>
 </head>
 
 <body>
     <main>
-
+        <header>
+            <img src="images/star-wars-logo.svg" alt="Star Wars Logo">
+            <p id="mobile-instructions">Cycle through the different characters to learn more!</p>
+            <p id="desktop-instructions"></p>
+        </header>
         <section class="character-list col-span-full">
             <h2 class="hidden">Star Wars Characters</h2>
-            <div id="character-box"></div>
+            <div id="character-box">
+                <button class="nav-btn prev-btn">
+                    <img src="images/arrow-left.webp" alt="Previous Button">
+                </button>
+                <button class="nav-btn next-btn">
+                    <img src="images/arrow-right.webp" alt="Next Button">
+                </button>
+            </div>
         </section>
 
         <section class="movie-details">
             <div id="movie-box">
                 <template id="movie-template">
-                    <img class="movie-poster" src="images/readme.webp" alt="">
-                    <div>
+                    <img class="movie-poster" src="#" alt="">
+                    <div class="crawl-container">
                         <h3 class="movie-title"></h3>
                         <p class="movie-crawl"></p>
                     </div>

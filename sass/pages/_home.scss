@@ -1,0 +1,20 @@
+@use '../abstracts' as a;
+
+header {
+    @include a.center;
+    flex-direction: column;
+    position: absolute;    
+
+    img {
+        margin: 2rem auto 1rem auto;
+        width: 60%;
+    }
+
+    p {
+        color: a.$primary-color;
+        font-size: 1.5rem;
+        text-align: center;
+        width: 90%;
+        font-weight: 800;
+    }
+}
