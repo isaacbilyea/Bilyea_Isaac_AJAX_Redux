@@ -1,8 +1,8 @@
-# Star Wars Character & Movie Guide 🌌
+# Lego Star Wars Character & Movie Guide 🧱
 
 ![Readme Photo](/images/readme.webp)
 
-Welcome to the Star Wars Character & Movie Guide! This project showcases the use of AJAX to dynamically fetch and display data from the Star Wars API (SWAPI). It allows users to explore detailed information about Star Wars characters and their associated movies, providing an interactive experience without page reloads.
+Welcome to the Lego Star Wars Character & Movie Guide! This project showcases the use of AJAX to dynamically fetch and display data from the Star Wars API (SWAPI). It allows users to explore detailed information about Star Wars characters and their associated movies, providing an interactive experience without page reloads.
 
 
 ## Table of Contents 📋
