@@ -108,7 +108,7 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
 
     .movie-details {
 
@@ -116,9 +116,13 @@
 
             .movie-poster {
                 animation: none;
+                width: 30%;
+                left: 20%;
             }
 
             .crawl-container {
+                width: 55vw;
+                left: 66.5%;
                 
                 .content-con {
           
