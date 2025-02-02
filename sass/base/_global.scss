@@ -15,8 +15,17 @@ html, body {
     position: relative;
     line-height: 1.5;
     z-index: 0;
-    background-image: url(../images/background.jpg);
-    color: white;
+    background: #000;
+    overflow-x: hidden;
+
+    .star {
+        position: fixed;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        z-index: -1;
+    }
 }
 
 @media screen and (min-width: 768px) {
