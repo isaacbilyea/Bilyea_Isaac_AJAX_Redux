@@ -1,3 +1,5 @@
+@use '../abstracts' as a;
+
 .movie-details {
     position: absolute;
     width: 100%;
@@ -6,20 +8,21 @@
 
     #movie-box {
         .movie-poster {
-            position: absolute;
+            position: fixed;
             width: 50%;
             left: 50%;
             top: 10%;
+            z-index: 100;
             transform: translateX(-50%);
             z-index: 1;
             animation: posterFade 6s ease-out forwards;
-            animation-delay: 1s;
+            animation-delay: 2s;
             border: white 2px solid;
         }
 
         .crawl-container {
             position: absolute;
-            width: 90vw;
+            width: 80vw;
             height: 50em;
             bottom: 0;
             left: 50%;
@@ -28,25 +31,24 @@
             transform: translateX(-50%) perspective(300px) rotateX(25deg);
             transform-origin: 50% 100%;
             
-            .movie-title {
-                color: #FFE81F;
-                position: absolute;
-                font-size: 3rem;
-                top: 100%;
-                animation: scroll 120s linear forwards;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .movie-crawl {
-                color: #FFE81F;
+            .content-con {
                 position: absolute;
                 top: 100%;
-                font-size: 1.52rem;
-                animation: scroll 120s linear forwards;
-                animation-delay: 3.5s;
                 width: 100%;
-                text-align: center;
+                animation: scroll 120s linear forwards;
+                
+                .movie-title {
+                    color: #FFE81F;
+                    font-size: 3rem;
+                    margin-bottom: 2rem;
+                    text-align: center;
+                }
+                
+                .movie-crawl {
+                    color: #FFE81F;
+                    font-size: 1.25rem;
+                    text-align: center;
+                }
             }
         }
     }
@@ -72,5 +74,34 @@
     }
     100% { 
         top: -170%; 
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .movie-details {
+
+        #movie-box {
+            .movie-poster {
+                width: 40%;
+                top: 5%;
+            }
+
+            .crawl-container {
+                
+                .movie-title {
+                    animation: scroll 140s linear forwards;
+                    animation-delay: 0.5s;
+                    font-size: 4rem;
+                }
+                
+                .movie-crawl {
+                    animation: scroll 140s linear forwards;
+                    animation-delay: 5.5s;
+                    font-size: 1.5rem;
+                }
+            }
+        }
     }
 }

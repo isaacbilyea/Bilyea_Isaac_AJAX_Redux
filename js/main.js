@@ -99,17 +99,22 @@
 
             const crawlContainer = document.createElement('div');
             crawlContainer.classList.add('crawl-container');
+
+            const contentCon = document.createElement('div');
+            contentCon.classList.add('content-con');
             
             movieTitle.innerHTML = title;
             moviePoster.src = `images/${episodeId}.jpg`;
             moviePoster.alt = response.title;
             movieCrawl.innerHTML = crawl;
             
-            crawlContainer.appendChild(movieTitle);
-            crawlContainer.appendChild(movieCrawl);
+            contentCon.appendChild(movieTitle);
+            contentCon.appendChild(movieCrawl);
+            crawlContainer.appendChild(contentCon);
             clone.appendChild(crawlContainer);
             
             movieBox.appendChild(clone);
+            
         })
         .catch(error => {
             console.log(error);
@@ -117,6 +122,30 @@
         });
     }
 
+    function createStars() {
+        const body = document.querySelector('body');
+        const starCount = 100;
+        
+        for(let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            
+            body.appendChild(star);
+            
+            gsap.to(star, {
+                opacity: Math.random(),
+                duration: 'random(1, 3)',
+                repeat: -1,
+                yoyo: true,
+                ease: 'power1.inOut'
+            });
+        }
+    }
+
     getCharacters();
+    createStars();
 
 })();

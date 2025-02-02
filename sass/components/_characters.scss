@@ -1,3 +1,5 @@
+@use '../abstracts' as a;
+
 #character-box {
     position: relative;
 
@@ -57,7 +59,7 @@
                 top: -70px;
                 font-weight: 800;
                 position: absolute;
-                color: #FFE81F;
+                color: a.$primary-color;
                 font-size: 1.2rem;
                 opacity: 1;
                 transition: opacity 0.3s ease;
@@ -96,7 +98,7 @@
 
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
 
     #character-box {
         
