@@ -102,20 +102,48 @@
 
     #character-box {
         
+        .nav-btn {
+            display: none;
+        }
+
+
         ul {
             li {
                 display: flex;
+                width: 5vw;
+                margin: 0 1.25rem;
+                margin-bottom: -2.5rem;
+                filter: grayscale(70%) brightness(0.7);
+
+                .character-name {
+                    opacity: 0;
+                }
         
-                &.active .character-name, 
-                &:hover .character-name {
+                &.active .character-name {
                     opacity: 1;
                 }
         
                 &:hover, &.active {
                     transform: translateY(-20px) scale(1.05);
-                    filter: grayscale(0%) brightness(1);
+                    filter: none;
                     z-index: 2;
                 }
+
+                &:nth-of-type(6) {
+                    z-index: -1;
+
+                    .character-name {
+                        margin-right: -2rem;
+                    }
+
+                    &:hover, &.active {
+                        transform: translateY(-20px) scale(1.05);
+                        filter: none;
+                        z-index: -1;
+
+                    }
+                }
+
             }
         } 
     }

@@ -4,6 +4,8 @@ header {
     @include a.center;
     flex-direction: column;
     position: absolute;    
+    left: 0;
+    right: 0;
 
     img {
         margin: 2rem auto 1rem auto;
@@ -16,5 +18,47 @@ header {
         text-align: center;
         width: 90%;
         font-weight: 800;
+    }
+
+    #desktop-instructions {
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    
+    header {
+
+        img {
+            width: 40%;
+        }
+
+        p {
+            font-size: 1.75rem;
+            width: 60%;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    
+    header {
+
+        img {
+            width: 30%;
+        }
+
+        p {
+            font-size: 1.75rem;
+        }
+
+        #desktop-instructions {
+            display: block;
+        }
+
+        #mobile-instructions {
+            display: none;
+        }
     }
 }
