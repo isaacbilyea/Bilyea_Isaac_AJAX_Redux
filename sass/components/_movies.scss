@@ -83,24 +83,54 @@
     .movie-details {
 
         #movie-box {
+
             .movie-poster {
                 width: 40%;
                 top: 5%;
+                max-width: 325px;
             }
 
             .crawl-container {
                 
-                .movie-title {
+                .content-con {
                     animation: scroll 140s linear forwards;
-                    animation-delay: 0.5s;
-                    font-size: 4rem;
-                }
+
+                    .movie-title {
+                        font-size: 4rem;
+                    }
+                    
+                    .movie-crawl {
+                        font-size: 1.5rem;
+                    }
+              }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .movie-details {
+
+        #movie-box {
+
+            .movie-poster {
+                animation: none;
+            }
+
+            .crawl-container {
                 
-                .movie-crawl {
-                    animation: scroll 140s linear forwards;
-                    animation-delay: 5.5s;
-                    font-size: 1.5rem;
-                }
+                .content-con {
+          
+
+                    .movie-title {
+                        font-size: 4rem;
+                    }
+                    
+                    .movie-crawl {
+                        font-size: 1.5rem;
+                    }
+              }
             }
         }
     }

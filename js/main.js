@@ -82,6 +82,7 @@
         });
 
         e.currentTarget.classList.add('active');
+        header.style.opacity = 0;
 
         fetch(movieURL)
         .then(response => response.json())
