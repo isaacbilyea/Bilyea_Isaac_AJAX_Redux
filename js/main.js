@@ -44,6 +44,26 @@
             
             characterBox.appendChild(ul);
 
+            const staggerFrom = window.innerWidth >= 1200 ? "center" : "start";
+            gsap.fromTo('#character-box li img', 
+                {
+                    y: 200,
+                    opacity: 0,
+                    scale: 0,
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    stagger: {
+                        amount: 1,
+                        from: staggerFrom
+                    },
+                    ease: "back.out(1.2)"
+                }
+            );
+
             prevBtn.addEventListener('click', () => changeCharacters('prev'));
             nextBtn.addEventListener('click', () => changeCharacters('next'));
         
@@ -105,7 +125,7 @@
                 { 
                     scale: 1, 
                     opacity: 1, 
-                    duration: 1,
+                    duration: 1.62,
                     ease: 'back.out(1.7)'
                 }
             );
@@ -120,8 +140,6 @@
     function changeCharacters(direction) {
         const characters = document.querySelectorAll('#character-box li');
         characters[currentIndex].classList.remove('current');
-
-    
         
         if(direction === 'next') {
             currentIndex = (currentIndex + 1) % characters.length;
@@ -166,11 +184,12 @@
             
             body.appendChild(star);
             
-            gsap.to(star, {
-                opacity: Math.random(),
+            gsap.to(star,{
+                opacity: 'random(0, 1)',
                 duration: 'random(1, 10)',
                 x: 'random(-5, 5)',
                 y: 'random(-5, 5)',
+                rotate: 'random(-90, 90)',
                 repeat: -1,
                 yoyo: true,
                 ease: 'power1.inOut',
@@ -186,7 +205,7 @@
 //----------------------------------------------------------------------------------//
 
 
-//GSAP
+//Other GSAP
 (() => {
 
     
@@ -218,7 +237,7 @@
 
     gsap.to('.nav-btn', {
         scale: 1.05,
-        y: 5,
+        y: 10,
         duration: 2,
         repeat: -1,
         yoyo: true,
