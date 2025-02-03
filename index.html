@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/DrawSVGPlugin.min.js"></script>
     <script defer src="js/main.js"></script>
     <title>Star Wars Guide</title>
 </head>
@@ -26,6 +27,10 @@
         </header>
         <section class="character-list col-span-full">
             <h2 class="hidden">Star Wars Characters</h2>
+            <div class="loader character-loader">
+                <img src="images/lego-head.svg" class="head-loader" alt="Loading...">
+                <p>LOADING CHARACTERS...</p>
+            </div>
             <div id="character-box">
                 <button class="nav-btn prev-btn">
                     <img src="images/arrow-left.webp" alt="Previous Button">
@@ -38,6 +43,10 @@
 
         <section class="movie-details">
             <h2 class="hidden">Star Wars Movie</h2>
+            <div class="loader movie-loader">
+                <img src="images/lego-brick.svg" alt="Loading...">
+                <p>LOADING MOVIE...</p>
+            </div>
             <div id="movie-box">
                 <template id="movie-template">
                     <img class="movie-poster" src="#" alt="">

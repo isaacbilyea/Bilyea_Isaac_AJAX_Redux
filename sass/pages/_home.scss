@@ -1,65 +1,41 @@
 @use '../abstracts' as a;
 
-header {
-    @include a.center;
-    flex-direction: column;
-    position: absolute;    
-    left: 0;
-    right: 0;
+.loader {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+    &.show {
+        display: block;
+    }
 
     img {
-        margin: 2rem auto 1rem auto;
-        width: 60%;
+        width: 80px;
+        height: 80px;
+        filter: drop-shadow(0 0 5px a.$primary-color);
+        animation: spinScale 1s ease infinite;
     }
 
     p {
         color: a.$primary-color;
-        font-size: 1.5rem;
-        text-align: center;
-        width: 90%;
+        margin-top: 1rem;
+        font-size: 1.2rem;
         font-weight: 800;
-    }
-
-    #desktop-instructions {
-        display: none;
+        filter: drop-shadow(0 0 5px a.$primary-color);
     }
 }
 
-
-@media screen and (min-width: 768px) {
-    
-    header {
-
-        img {
-            width: 40%;
-        }
-
-        p {
-            font-size: 1.75rem;
-            width: 60%;
-        }
+@keyframes spinScale {
+    0% {
+        transform: rotate(0deg) scale(1);
     }
-}
-
-@media screen and (min-width: 1200px) {
-    
-    header {
-
-        img {
-            width: 30%;
-            margin: 3rem auto 1rem auto;
-        }
-
-        p {
-            font-size: 1.75rem;
-        }
-
-        #desktop-instructions {
-            display: block;
-        }
-
-        #mobile-instructions {
-            display: none;
-        }
+    50% {
+        transform: rotate(180deg) scale(0.5);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
     }
 }
