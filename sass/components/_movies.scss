@@ -15,8 +15,8 @@
             z-index: 100;
             transform: translateX(-50%);
             z-index: 1;
-            animation: posterFade 6s ease-out forwards;
-            animation-delay: 2s;
+            animation: posterFade 5s ease-out forwards;
+            animation-delay: 1s;
             border: white 2px solid;
         }
 
@@ -36,6 +36,7 @@
                 top: 100%;
                 width: 100%;
                 animation: scroll 120s linear forwards;
+                animation-delay: 2s;
                 
                 .movie-title {
                     color: #FFE81F;
@@ -70,10 +71,14 @@
 
 @keyframes scroll {
     0% { 
-        top: 100%; 
+        top: 95%; 
+    }
+    90% {
+        opacity: 1;
     }
     100% { 
         top: -170%; 
+        opacity: 0;
     }
 }
 
@@ -94,6 +99,7 @@
                 
                 .content-con {
                     animation: scroll 140s linear forwards;
+                    animation-delay: 2s;
 
                     .movie-title {
                         font-size: 4rem;
@@ -130,7 +136,7 @@
                 left: 66.5%;
                 
                 .content-con {
-          
+                    animation-delay: 0s;
 
                     .movie-title {
                         font-size: 4rem;
