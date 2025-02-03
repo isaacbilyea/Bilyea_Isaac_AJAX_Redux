@@ -1,4 +1,5 @@
 (() => {
+    //VARIABLES
     const characterBox = document.querySelector('#character-box'),
           movieBox = document.querySelector('#movie-box'),
           movieTemplate = document.querySelector('#movie-template'),
@@ -9,27 +10,7 @@
     
     let currentIndex = 0;
 
-    function changeCharacters(direction) {
-        const characters = document.querySelectorAll('#character-box li');
-        characters[currentIndex].classList.remove('current');
-    
-        
-        if(direction === 'next') {
-            currentIndex = (currentIndex + 1) % characters.length;
-        } else {
-            currentIndex = currentIndex === 0 ? characters.length - 1 : currentIndex - 1;
-        }
-
-        const currentCharacter = characters[currentIndex];
-        characters[currentIndex].classList.add('current');
-
-        //clears movie and fetches new movie
-        movieBox.innerHTML = '';
-        getMovie({ currentTarget: currentCharacter });
-
-        header.style.opacity = 0;
-    }
-
+    //FUNCTIONS
     function getCharacters() {
         fetch(`${baseURL}people/?page=2`)
         .then(response => response.json())
@@ -115,6 +96,19 @@
             clone.appendChild(crawlContainer);
             
             movieBox.appendChild(clone);
+
+            gsap.fromTo('.movie-poster',
+                { 
+                    scale: 0, 
+                    opacity: 0 
+                },
+                { 
+                    scale: 1, 
+                    opacity: 1, 
+                    duration: 1,
+                    ease: 'back.out(1.7)'
+                }
+            );
             
         })
         .catch(error => {
@@ -123,11 +117,47 @@
         });
     }
 
-    function createStars() {
-        const body = document.querySelector('body');
-        const starCount = 200;
+    function changeCharacters(direction) {
+        const characters = document.querySelectorAll('#character-box li');
+        characters[currentIndex].classList.remove('current');
+
+    
         
-        for(let i = 0; i < starCount; i++) {
+        if(direction === 'next') {
+            currentIndex = (currentIndex + 1) % characters.length;
+        } else {
+            currentIndex = currentIndex === 0 ? characters.length - 1 : currentIndex - 1;
+        }
+
+        const currentCharacter = characters[currentIndex];
+        characters[currentIndex].classList.add('current');
+
+        //clears movie and fetches new movie
+        movieBox.innerHTML = '';
+        getMovie({ currentTarget: currentCharacter });
+
+        header.style.opacity = 0;
+    }
+
+    getCharacters();
+
+})();
+
+
+//----------------------------------------------------------------------------------//
+
+
+//Star Background
+(() => {
+
+    //VARIABLES
+    const body = document.querySelector('body'),
+          starCount = 200;
+
+    //FUNCTIONS
+    function createStars() {
+        
+        for(let i = 0; i <= starCount; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
             
@@ -138,15 +168,61 @@
             
             gsap.to(star, {
                 opacity: Math.random(),
-                duration: 'random(1, 3)',
+                duration: 'random(1, 10)',
+                x: 'random(-5, 5)',
+                y: 'random(-5, 5)',
                 repeat: -1,
                 yoyo: true,
-                ease: 'power1.inOut'
+                ease: 'power1.inOut',
             });
         }
     }
 
-    getCharacters();
     createStars();
+    
+})();
+
+
+//----------------------------------------------------------------------------------//
+
+
+//GSAP
+(() => {
+
+    
+    gsap.fromTo('header img', 
+        { 
+            scale: 0, 
+            opacity: 0 
+        }, 
+        { 
+            scale: 1, 
+            opacity: 1, 
+            duration: 1, 
+            ease: 'back.out' 
+        }
+    );
+    
+    gsap.fromTo('header p', 
+        { 
+            y: -50, 
+            opacity: 0 
+        }, 
+        { 
+            y: 0, 
+            opacity: 1, 
+            duration: 1, 
+            delay: 0.5 
+        }
+    );
+
+    gsap.to('.nav-btn', {
+        scale: 1.05,
+        y: 5,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut'
+    });
 
 })();
