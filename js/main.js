@@ -6,15 +6,21 @@
           prevBtn = document.querySelector('.prev-btn'),
           nextBtn = document.querySelector('.next-btn'),
           header = document.querySelector('header'),
-          baseURL = 'https://swapi.dev/api/';
+          baseURL = 'https://swapi.dev/api/'
+          characterLoader = document.querySelector('.character-loader'),
+          movieLoader = document.querySelector('.movie-loader');
     
     let currentIndex = 0;
 
     //FUNCTIONS
     function getCharacters() {
+        characterLoader.classList.add('show');
+
         fetch(`${baseURL}people/?page=2`)
         .then(response => response.json())
         .then(function(response) {
+            characterLoader.classList.remove('show');
+
             const characters = response.results,
                   ul = document.createElement('ul');
 
@@ -71,10 +77,13 @@
         .catch(error => {
             console.log(error);
             characterBox.innerHTML = '<p class="error">Error loading characters</p>';
+            characterLoader.classList.remove('show');
         });
     }
 
     function getMovie(e) {
+        movieLoader.classList.add('show');
+
         const movieURL = e.currentTarget.dataset.films,
               characters = document.querySelectorAll('#character-box li');
         
@@ -89,6 +98,7 @@
         fetch(movieURL)
         .then(response => response.json())
         .then(function(response) {
+            movieLoader.classList.remove('show');
 
             const title = response.title;
             const crawl = response.opening_crawl;
@@ -134,6 +144,7 @@
         .catch(error => {
             console.log(error);
             movieBox.innerHTML = '<p class="error">Error loading movie</p>';
+            movieLoader.classList.remove('show');
         });
     }
 
@@ -237,11 +248,10 @@
 
     gsap.to('.nav-btn', {
         scale: 1.05,
-        y: 10,
+        y: 5,
         duration: 2,
         repeat: -1,
         yoyo: true,
         ease: 'power1.inOut'
     });
-
 })();

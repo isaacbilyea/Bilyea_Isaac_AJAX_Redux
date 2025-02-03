@@ -89,7 +89,7 @@
                 }
                 
                 img {
-                    transform: scale(0.8);
+                    height: 80%;
                     margin-bottom: -3rem;
                 }
             }
@@ -112,7 +112,7 @@
                 display: flex;
                 margin: 0 -1.5rem;
                 width: min-content;
-                margin-bottom: -2.25rem;
+                margin-bottom: -2.5rem;
                 height: 225px;
                 filter: grayscale(70%) brightness(0.7);
 
@@ -161,8 +161,7 @@
                 &:nth-of-type(9) {
 
                     img {
-                        transform: scale(0.8);
-                        margin-bottom: -2rem;
+                        margin-bottom: -2.5rem;
                         margin-right: -1rem;
                     }
 
