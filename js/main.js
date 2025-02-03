@@ -6,9 +6,9 @@
           prevBtn = document.querySelector('.prev-btn'),
           nextBtn = document.querySelector('.next-btn'),
           header = document.querySelector('header'),
-          baseURL = 'https://swapi.dev/api/'
           characterLoader = document.querySelector('.character-loader'),
-          movieLoader = document.querySelector('.movie-loader');
+          movieLoader = document.querySelector('.movie-loader'),
+          baseURL = 'https://swapi.dev/api/';
     
     let currentIndex = 0;
 
@@ -76,7 +76,7 @@
         })
         .catch(error => {
             console.log(error);
-            characterBox.innerHTML = '<p class="error">Error loading characters</p>';
+            characterBox.innerHTML = '<p class="error">Error loading characters. Please try again later.</p>';
             characterLoader.classList.remove('show');
         });
     }
@@ -143,7 +143,7 @@
         })
         .catch(error => {
             console.log(error);
-            movieBox.innerHTML = '<p class="error">Error loading movie</p>';
+            movieBox.innerHTML = '<p class="error">Error loading movie. Please try again later.</p>';
             movieLoader.classList.remove('show');
         });
     }
