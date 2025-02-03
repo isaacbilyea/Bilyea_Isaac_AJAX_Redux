@@ -165,6 +165,12 @@
                         margin-bottom: -2rem;
                         margin-right: -1rem;
                     }
+
+                    
+                    .character-name {
+                        top: -25px;
+                        margin-right: -1rem;
+                    }
                 }
 
             }
@@ -179,7 +185,6 @@
         ul {
             li {
                 height: 250px;
-
 
                 //Jabba
                 &:nth-of-type(6) {

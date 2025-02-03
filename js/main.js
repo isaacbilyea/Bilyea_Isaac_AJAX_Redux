@@ -84,10 +84,10 @@
         e.currentTarget.classList.add('active');
         header.style.opacity = 0;
 
+        movieBox.innerHTML = '';
         fetch(movieURL)
         .then(response => response.json())
         .then(function(response) {
-            movieBox.innerHTML = '';
 
             const title = response.title;
             const crawl = response.opening_crawl;
@@ -125,7 +125,7 @@
 
     function createStars() {
         const body = document.querySelector('body');
-        const starCount = 100;
+        const starCount = 200;
         
         for(let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
