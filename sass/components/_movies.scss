@@ -9,9 +9,10 @@
     #movie-box {
         .movie-poster {
             position: fixed;
-            width: 50%;
+            width: auto;
             left: 50%;
             top: 10%;
+            height: 35vh;
             z-index: 100;
             transform: translateX(-50%);
             z-index: 1;
@@ -84,15 +85,13 @@
 
 
 @media screen and (min-width: 768px) {
-
     .movie-details {
 
         #movie-box {
 
             .movie-poster {
-                width: 40%;
                 top: 5%;
-                max-width: 300px;
+                height: 40vh;
             }
 
             .crawl-container {
@@ -120,15 +119,15 @@
         max-width: 1400px;
         left: 50%;
         transform: translateX(-50%);
-        height: 60vh;
+        height: 55vh;
 
         #movie-box {
 
             .movie-poster {
                 animation: none;
-                width: 30%;
                 left: 20%;
                 top: 10%;
+                height: 45vh;
             }
 
             .crawl-container {
